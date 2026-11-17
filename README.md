@@ -8,6 +8,29 @@ Tarayıcıda çalışan, kaynak kodu incelemeye ve akademik/ticari olmayan kulla
 
 **Live Demo / Canlı Önizleme:** [https://hypotheca.muammer-b28.workers.dev](https://hypotheca.muammer-b28.workers.dev) *(örnek veri setleri yüklü gelir; tüm analizler tarayıcınızda yerel çalışır / preloaded with sample datasets; all analyses run locally in your browser)*
 
+## Akademisyenler İçin Otomatik Kurulum (Teknik Bilgi Gerektirmez)
+
+Hypotheca, BAP araştırmacıları ve akademisyenlerin JSON dosyası düzenlemeden veya karmaşık sunucu komutları ezberlemeden çalışabilmesi için **tek tıkla kurulum sihirbazı** içerir:
+
+1. **Çift Tıklayarak Kurun:**
+   - **macOS / Linux:** Klasördeki `Kurulum_Mac_Linux.command` dosyasına çift tıklayın.
+   - **Windows:** Klasördeki `Kurulum_Windows.bat` dosyasına çift tıklayın.
+   - *(Veya terminalden `npm run kurulum` komutunu çalıştırın.)*
+2. **Sihirbaz Sizin Yerinizde Neleri Otomatik Yapar?**
+   - Kişisel ve gizlilik korumalı **`arastirma-verilerim/`** klasörünü (ve PDF makaleler için `arastirma-verilerim/literatur/` klasörünü) örnek BAP dosyalarıyla hazırlar. Bu klasör `.gitignore` ile korunur; buluta veya GitHub'a yüklenmez.
+   - 256-bit `JWT_SECRET` ve tuzlanmış `PBKDF2-SHA256` araştırmacı giriş bilgilerini `.dev.vars` içine otomatik oluşturur.
+   - İşletim sisteminizdeki **Claude Desktop** yapılandırma dosyasını (`claude_desktop_config.json`) otomatik algılar, önceki ayarınızı yedekler ve `hypotheca-bap` MCP sunucusunu ekler.
+3. **Analize Başlayın:**
+   - Claude Desktop uygulamasını kapatıp yeniden açtığınızda `analyze_bap_data`, `read_literature_pdf` ve `bap_project_schema` araçları otomatik bağlanır.
+   - Web arayüzü için `Baslat_Mac_Linux.command` veya `Baslat_Windows.bat` dosyasına çift tıklayın (`http://127.0.0.1:8787`).
+   - **Tarayıcıdan İlk Kurulum & Ekip Yönetimi:** Cloudflare KV bağlı ortamlarda `/login` açılışta **İlk Kurulum Sihirbazı**na dönüşür; proje yürütücüsü hesabını oluşturup ardından `/dashboard` üzerinden tek tıkla araştırma ekibi üyeleri ekleyebilirsiniz.
+
+## Zero-Config Setup for Researchers
+
+- **Double-click to configure:** Run `Kurulum_Mac_Linux.command` (macOS/Linux), `Kurulum_Windows.bat` (Windows), or `npm run kurulum`.
+- The wizard automatically creates your private `arastirma-verilerim/` data folder, generates `.dev.vars` (`JWT_SECRET` + salted PBKDF2 user credentials), builds the app and MCP server, and safely merges `hypotheca-bap` into your OS `claude_desktop_config.json` (with automatic backup).
+- Double-click `Baslat_Mac_Linux.command` or `Baslat_Windows.bat` to start the authenticated local dashboard at `http://127.0.0.1:8787`.
+
 ## Overview
 
 - All computations are implemented in TypeScript and run locally. Datasets are not uploaded to a server.
@@ -39,6 +62,10 @@ Numerical results are checked against reference datasets and published values in
 | `src/modules/reproducibility/` | R, Python and SPSS script generation, OSF package |
 | `src/modules/privacy-runtime/` | Background computation, local storage, encrypted export, on-premise Docker/Nginx config |
 | `src/modules/survey-collab/` | Survey cleaning (text Likert to numbers, reverse coding, straight-liners) and advisor notes |
+| `src/modules/mcp-dashboard/` | Authenticated BAP research dashboard & interactive MCP schema/tool preview |
+| `worker/` | Cloudflare Workers HttpOnly JWT auth, PBKDF2-SHA256, rate limiting, first-run KV setup & routing |
+| `mcp-server/` | Local stdio MCP server (`analyze_bap_data`, `read_literature_pdf`, `bap_project_schema`) with KVKK PII masking |
+| `scripts/kurulum.mjs` | Zero-dependency academic setup wizard & automatic Claude Desktop configurator |
 
 ## Getting started
 

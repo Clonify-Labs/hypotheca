@@ -26,6 +26,7 @@ import {
 } from './project/projectStore';
 import { ProjectsHome } from './project/ProjectsHome';
 import { ProjectSetupPage } from './project/ProjectSetupPage';
+import { McpDashboardPage } from './modules/mcp-dashboard/McpDashboardPage';
 
 type ToolId = 'sem' | 'advanced' | 'privacy';
 type ViewId = StepId | ToolId;
@@ -61,6 +62,9 @@ export default function App(): JSX.Element {
   const [userDatasets, setUserDatasets] = useState<Dataset[]>(() => loadUserDatasets());
   const [projects, setProjects] = useState<Project[]>(() => loadProjects());
   const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
+  const [showMcpDashboard, setShowMcpDashboard] = useState<boolean>(
+    () => typeof window !== 'undefined' && window.location.pathname.startsWith('/dashboard'),
+  );
   const [view, setView] = useState<ViewId>('project');
   const [storageOk, setStorageOk] = useState(true);
   const [lang, setLang] = useState<Lang>(() => readPref<Lang>('hypotheca.lang', ['tr', 'en'], 'tr'));
@@ -228,10 +232,27 @@ export default function App(): JSX.Element {
     if (activeProjectId === id) setActiveProjectId(null);
   };
 
+  const navigateDashboard = useCallback((open: boolean) => {
+    setShowMcpDashboard(open);
+    if (typeof window !== 'undefined' && window.history?.pushState) {
+      const targetPath = open ? '/dashboard' : '/';
+      if (window.location.pathname !== targetPath) {
+        window.history.pushState(null, '', targetPath);
+      }
+    }
+  }, []);
+
   const header = (title: React.ReactNode) => (
     <header className="hp-header">
       <div className="hp-header-group">{title}</div>
       <div className="hp-header-group">
+        <button
+          type="button"
+          className="hp-btn hp-btn-sm hp-btn-ghost"
+          onClick={() => navigateDashboard(!showMcpDashboard)}
+        >
+          {showMcpDashboard ? (tr ? 'Çalışma Alanı' : 'Workbench') : tr ? 'MCP Paneli' : 'MCP Dashboard'}
+        </button>
         <button type="button" className="hp-btn hp-btn-sm hp-btn-ghost" onClick={() => setLang((l) => (l === 'tr' ? 'en' : 'tr'))} aria-label="Language">
           {tr ? 'EN' : 'TR'}
         </button>
@@ -246,6 +267,27 @@ export default function App(): JSX.Element {
       </div>
     </header>
   );
+
+  if (showMcpDashboard) {
+    return (
+      <div className="hp-shell is-home">
+        {header(
+          <span className="hp-brand-btn">
+            <img src="/brand-mark.svg" alt="" width={26} height={26} />
+            <span className="hp-brand-name">Hypotheca</span>
+          </span>,
+        )}
+        <main className="hp-main">
+          <McpDashboardPage
+            dataset={dataset ?? datasets[0] ?? null}
+            datasets={datasets}
+            lang={lang}
+            onEnterWorkbench={() => navigateDashboard(false)}
+          />
+        </main>
+      </div>
+    );
+  }
 
   if (!project) {
     return (

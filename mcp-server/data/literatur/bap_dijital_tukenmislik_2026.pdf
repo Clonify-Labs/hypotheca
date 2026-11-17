@@ -1,0 +1,113 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding 4 0 R /ToUnicode 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Encoding /BaseEncoding /WinAnsiEncoding /Differences [129 /Idotaccent /dotlessi /Scedilla /scedilla /Gbreve /gbreve] >>
+endobj
+5 0 obj
+<< /Length 391 >>
+stream
+/CIDInit /ProcSet findresource begin
+12 dict begin
+begincmap
+/CIDSystemInfo << /Registry (Adobe) /Ordering (UCS) /Supplement 0 >> def
+/CMapName /Adobe-Identity-UCS def
+/CMapType 2 def
+1 begincodespacerange
+<00> <FF>
+endcodespacerange
+6 beginbfchar
+<81> <0130>
+<82> <0131>
+<83> <015E>
+<84> <015F>
+<85> <011E>
+<86> <011F>
+endbfchar
+endcmap
+CMapName currentdict /CMap defineresource pop
+end
+end
+endstream
+endobj
+6 0 obj
+<< /Length 555 >>
+stream
+BT
+/F1 11 Tf
+50 760 Td
+16 TL
+(BAP-2026-ZEYNEP-01 Literatür Sentezi ve Kuramsal Çerçeve) Tj T*
+(1. Giri„ ve Akademik Öz-Yeterlik Kavram‚) Tj T*
+(Yüksekö†retimde akademik öz-yeterlik inanc‚, ö†rencilerin zorlu ders yükleri kar„‚s‚ndaki) Tj T*
+(sebat düzeyini ve akademik ba„ar‚ performans‚n‚ do†rudan belirlemektedir. Son y‚llarda yap‚lan) Tj T*
+(ampirik çal‚„malar, dü„ük öz-yeterlik alg‚s‚n‚n akademik tükenmi„lik riskini art‚rd‚†‚n‚) Tj T*
+(ortaya koymaktad‚r \(Y‚lmaz & Kaya, 2024\). Bu çal‚„ma N = 180 lisans ö†rencisi üzerinde yürütülmü„tür.) Tj T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 467 >>
+stream
+BT
+/F1 11 Tf
+50 760 Td
+16 TL
+(2. Yöntem ve Ölçek Güvenilirlik Bulgular‚) Tj T*
+(Kat‚l‚mc‚lara Akademik Öz-Yeterlik Ölçe†i ve Maslach Tükenmi„lik Envanteri uygulanm‚„t‚r.) Tj T*
+(Güvenirlik analizinde öz-yeterlik alt boyutu için Cronbach alpha = 0.89 ve tükenmi„lik) Tj T*
+(alt boyutu için alpha = 0.86 elde edilmi„tir. Korelasyon analizi öz-yeterlik ile tükenmi„lik) Tj T*
+(aras‚nda güçlü ve negatif bir ili„ki oldu†unu göstermi„tir \(r = -0.54, p < .001\).) Tj T*
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 483 >>
+stream
+BT
+/F1 11 Tf
+50 760 Td
+16 TL
+(3. Hiyerar„ik Regresyon ve BAP Sonuç Tart‚„mas‚) Tj T*
+(Hiyerar„ik çoklu regresyon modeli akademik ba„ar‚n‚n anlaml‚ yorday‚c‚lar‚n‚ incelemi„tir.) Tj T*
+(Regresyon bulgular‚na göre öz-yeterlik ve haftal‚k çal‚„ma saati toplam varyans‚n %38 k‚sm‚n‚) Tj T*
+(aç‚klamaktad‚r \(R² = 0.38, F\(2, 177\) = 54.21, p < .001\). Tükenmi„lik düzeyi azald‚kça) Tj T*
+(dönem sonu akademik ba„ar‚ puanlar‚ istatistiksel olarak anlaml‚ biçimde yükselmektedir.) Tj T*
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 10 0 R >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000128 00000 n 
+0000000231 00000 n 
+0000000376 00000 n 
+0000000818 00000 n 
+0000001424 00000 n 
+0000001550 00000 n 
+0000002068 00000 n 
+0000002194 00000 n 
+0000002729 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+2857
+%%EOF

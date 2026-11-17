@@ -1,0 +1,11 @@
+# Cloudflare Workers yerel geliştirme ortam değişkenleri şablonu
+# Bu dosyayı .dev.vars olarak kopyalayıp kendi gizli anahtarlarınızla doldurun.
+# Canlı ortam (Production) için:
+#   npx wrangler secret put JWT_SECRET
+#   npx wrangler secret put AUTH_USERS_JSON
+
+# En az 32 karakterlik rastgele bir imza anahtarı (örnek: openssl rand -hex 32)
+JWT_SECRET="CHANGE_ME_GENERATE_WITH_OPENSSL_RAND_HEX_32"
+
+# "npm run auth:hash" komutu ile üretilmiş PBKDF2-SHA256 kullanıcı listesi
+AUTH_USERS_JSON='[{"username":"zeynep.hoca","passwordHash":"<PBKDF2_SHA256_HASH_HEX>","salt":"<SALT_HEX>","iterations":100000,"name":"Prof. Dr. Zeynep Kaya","role":"principal_investigator","bapProject":"BAP-2026-ZEYNEP-01"}]'

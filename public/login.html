@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hypotheca · Akademik BAP Güvenli Giriş</title>
+  <link rel="icon" href="/brand-mark.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: oklch(97.6% 0.005 85);
+      --paper-2: oklch(94.5% 0.007 85);
+      --plate: oklch(99.6% 0.002 85);
+      --ink: oklch(27% 0.028 255);
+      --ink-2: oklch(38% 0.024 255);
+      --muted: oklch(52% 0.018 255);
+      --rule: oklch(90% 0.008 255);
+      --rule-strong: oklch(82% 0.012 255);
+      --accent: oklch(48% 0.085 232);
+      --accent-hover: oklch(42% 0.085 232);
+      --accent-soft: oklch(95% 0.022 232);
+      --accent-ink: oklch(99.6% 0.002 85);
+      --success: oklch(48% 0.1 155);
+      --success-soft: oklch(93% 0.035 150);
+      --info: oklch(46% 0.11 245);
+      --info-soft: oklch(93% 0.03 245);
+      --error: oklch(50% 0.15 27);
+      --error-soft: oklch(93% 0.04 27);
+      --font-display: "Iowan Old Style", "Charter", "Source Serif Pro", Georgia, ui-serif, serif;
+      --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      --shadow: 0 2px 6px oklch(27% 0.028 255 / 0.05), 0 14px 36px oklch(27% 0.028 255 / 0.07);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --paper: oklch(19% 0.012 255);
+        --paper-2: oklch(23% 0.013 255);
+        --plate: oklch(22% 0.013 255);
+        --ink: oklch(93% 0.008 255);
+        --ink-2: oklch(84% 0.01 255);
+        --muted: oklch(70% 0.014 255);
+        --rule: oklch(31% 0.014 255);
+        --rule-strong: oklch(38% 0.016 255);
+        --accent: oklch(74% 0.09 228);
+        --accent-hover: oklch(80% 0.08 228);
+        --accent-soft: oklch(29% 0.035 232);
+        --accent-ink: oklch(19% 0.012 255);
+        --success: oklch(72% 0.1 155);
+        --success-soft: oklch(27% 0.035 155);
+        --info: oklch(74% 0.09 240);
+        --info-soft: oklch(28% 0.035 240);
+        --error: oklch(72% 0.14 25);
+        --error-soft: oklch(28% 0.04 25);
+        --shadow: 0 10px 30px oklch(0% 0 0 / 0.35);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(920px 480px at 15% 10%, var(--accent-soft), transparent 65%),
+        var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      line-height: 1.5;
+    }
+
+    .login-shell {
+      width: 100%;
+      max-width: 460px;
+      background: var(--plate);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      margin: 2px 0 0;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .privacy-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 9px;
+      background: var(--success-soft);
+      color: var(--success);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .info-box {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 9px;
+      background: var(--info-soft);
+      color: var(--info);
+      font-size: 0.8125rem;
+      margin-bottom: 18px;
+    }
+
+    .info-box.is-visible {
+      display: block;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      margin-bottom: 6px;
+    }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .field input {
+      width: 100%;
+      height: 44px;
+      padding: 10px 12px;
+      border: 1px solid var(--rule-strong);
+      border-radius: 8px;
+      background: var(--paper);
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.9375rem;
+      transition: border-color 140ms ease, box-shadow 140ms ease;
+    }
+
+    .field input.has-toggle {
+      padding-right: 76px;
+    }
+
+    .field input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .toggle-pass {
+      position: absolute;
+      right: 8px;
+      height: 30px;
+      padding: 0 10px;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      background: var(--plate);
+      color: var(--ink-2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .toggle-pass:hover {
+      background: var(--paper-2);
+    }
+
+    .alert {
+      display: none;
+      padding: 11px 13px;
+      border-radius: 8px;
+      background: var(--error-soft);
+      color: var(--error);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .alert.is-visible {
+      display: block;
+    }
+
+    .submit-btn {
+      width: 100%;
+      height: 44px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font: inherit;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 140ms ease, opacity 140ms ease;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      background: var(--accent-hover);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.68;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      display: none;
+      animation: spin 0.75s linear infinite;
+    }
+
+    .submit-btn.is-loading .spinner {
+      display: inline-block;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .foot-note {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .foot-code {
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <main class="login-shell">
+    <div class="brand-row">
+      <img src="/brand-mark.svg" alt="Hypotheca" width="38" height="38" />
+      <div>
+        <h1 class="brand-title">Hypotheca</h1>
+        <p id="brand-sub" class="brand-sub">BAP Akademik Veri Analizi &amp; MCP Platformu</p>
+      </div>
+    </div>
+
+    <div class="privacy-pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="m9 12 2 2 4-4"/>
+      </svg>
+      <span>%100 Veri Mahremiyeti · HttpOnly JWT Oturumu</span>
+    </div>
+
+    <div id="setup-banner" class="info-box">
+      <strong id="setup-banner-title">İlk Kurulum Sihirbazı</strong>
+      <span id="setup-banner-desc"></span>
+    </div>
+
+    <div id="error-box" class="alert" role="alert" aria-live="polite"></div>
+
+    <!-- Standart Giriş Formu -->
+    <form id="login-form" novalidate>
+      <div class="field">
+        <label for="username">Araştırmacı Kullanıcı Adı</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          autocomplete="username"
+          placeholder="zeynep.hoca"
+          required
+          autofocus
+        />
+      </div>
+
+      <div class="field">
+        <label for="password">Parola</label>
+        <div class="input-wrap">
+          <input
+            id="password"
+            name="password"
+            class="has-toggle"
+            type="password"
+            autocomplete="current-password"
+            placeholder="••••••••••••"
+            required
+          />
+          <button
+            id="toggle-pass"
+            type="button"
+            class="toggle-pass"
+            aria-label="Parolayı göster"
+          >Göster</button>
+        </div>
+      </div>
+
+      <button id="submit-btn" type="submit" class="submit-btn">
+        <span class="spinner" aria-hidden="true"></span>
+        <span id="submit-label">MCP Analiz Paneline Giriş Yap</span>
+      </button>
+    </form>
+
+    <!-- İlk Kullanım Tarayıcı Kurulum Formu (Sadece ilk kurulumda görünür) -->
+    <form id="setup-form" class="hidden" novalidate>
+      <div class="field">
+        <label for="setup-name">Ad Soyad ve Unvan</label>
+        <input
+          id="setup-name"
+          name="name"
+          type="text"
+          placeholder="Prof. Dr. Zeynep Kaya"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="setup-username">Kullanıcı Adı</label>
+        <input
+          id="setup-username"
+          name="username"
+          type="text"
+          placeholder="zeynep.hoca"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="setup-project">BAP Proje Kodu</label>
+        <input
+          id="setup-project"
+          name="bapProject"
+          type="text"
+          value="BAP-2026-01"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="setup-password">Parola Belirleyin (en az 8 karakter)</label>
+        <div class="input-wrap">
+          <input
+            id="setup-password"
+            name="password"
+            class="has-toggle"
+            type="password"
+            autocomplete="new-password"
+            placeholder="En az 8 karakter"
+            required
+          />
+          <button
+            id="toggle-setup-pass"
+            type="button"
+            class="toggle-pass"
+            aria-label="Parolayı göster"
+          >Göster</button>
+        </div>
+      </div>
+
+      <div id="setup-token-field" class="field hidden">
+        <label for="setup-token">Kurulum Anahtarı</label>
+        <input
+          id="setup-token"
+          name="setupToken"
+          type="password"
+          placeholder="Sistem yöneticisinden aldığınız kurulum anahtarı"
+        />
+      </div>
+
+      <button id="setup-submit-btn" type="submit" class="submit-btn">
+        <span class="spinner" aria-hidden="true"></span>
+        <span id="setup-submit-label">Yürütücü Hesabını Oluştur ve Başla</span>
+      </button>
+    </form>
+
+    <div class="foot-note">
+      <span>Araştırma verileri tarayıcı ve yerel MCP sunucusunda kalır.</span>
+      <span class="foot-code">hypotheca.muammer-b28.workers.dev</span>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const loginForm = document.getElementById('login-form');
+      const setupForm = document.getElementById('setup-form');
+      const brandSub = document.getElementById('brand-sub');
+      const setupBanner = document.getElementById('setup-banner');
+      const setupBannerTitle = document.getElementById('setup-banner-title');
+      const setupBannerDesc = document.getElementById('setup-banner-desc');
+      const setupTokenField = document.getElementById('setup-token-field');
+
+      const usernameInput = document.getElementById('username');
+      const passwordInput = document.getElementById('password');
+      const togglePassBtn = document.getElementById('toggle-pass');
+      const errorBox = document.getElementById('error-box');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitLabel = document.getElementById('submit-label');
+
+      const setupNameInput = document.getElementById('setup-name');
+      const setupUsernameInput = document.getElementById('setup-username');
+      const setupProjectInput = document.getElementById('setup-project');
+      const setupPasswordInput = document.getElementById('setup-password');
+      const setupTokenInput = document.getElementById('setup-token');
+      const toggleSetupPassBtn = document.getElementById('toggle-setup-pass');
+      const setupSubmitBtn = document.getElementById('setup-submit-btn');
+      const setupSubmitLabel = document.getElementById('setup-submit-label');
+
+      function safeNextPath() {
+        const params = new URLSearchParams(window.location.search);
+        const raw = params.get('next');
+        if (!raw || !raw.startsWith('/') || raw.startsWith('//') || raw.includes('\\') || raw === '/' || raw.startsWith('/login')) {
+          return '/dashboard';
+        }
+        return raw;
+      }
+
+      function showError(message) {
+        errorBox.textContent = message;
+        errorBox.classList.add('is-visible');
+      }
+
+      function clearError() {
+        errorBox.textContent = '';
+        errorBox.classList.remove('is-visible');
+      }
+
+      function bindPassToggle(btn, input) {
+        btn.addEventListener('click', function () {
+          const isMasked = input.type === 'password';
+          input.type = isMasked ? 'text' : 'password';
+          btn.textContent = isMasked ? 'Gizle' : 'Göster';
+          btn.setAttribute('aria-label', isMasked ? 'Parolayı gizle' : 'Parolayı göster');
+        });
+      }
+
+      bindPassToggle(togglePassBtn, passwordInput);
+      bindPassToggle(toggleSetupPassBtn, setupPasswordInput);
+
+      async function detectSetupMode() {
+        try {
+          const res = await fetch('/api/auth/status', { credentials: 'same-origin' });
+          if (!res.ok) return;
+          const status = await res.json();
+          if (status.canSelfSetup) {
+            brandSub.textContent = 'İlk Kurulum · Proje Yürütücüsü Hesabı';
+            setupBannerTitle.textContent = 'Hoş Geldiniz! Tek Seferlik İlk Kurulum';
+            setupBannerDesc.textContent =
+              'Komut satırı kullanmadan proje yürütücüsü hesabınızı buradan oluşturun. Ekip üyelerinizi giriş yaptıktan sonra panelden ekleyebilirsiniz.';
+            setupBanner.classList.add('is-visible');
+            loginForm.classList.add('hidden');
+            setupForm.classList.remove('hidden');
+            if (status.requiresSetupToken) {
+              setupTokenField.classList.remove('hidden');
+            }
+          } else if (!status.initialized) {
+            setupBannerTitle.textContent = 'İlk Kurulum Henüz Yapılmadı';
+            setupBannerDesc.textContent =
+              'Yerel ortamda başlamak için proje klasöründeki Kurulum_Mac_Linux.command veya Kurulum_Windows.bat dosyasına çift tıklamanız yeterlidir.';
+            setupBanner.classList.add('is-visible');
+          }
+        } catch (_err) {
+          /* sessizce standart giriş formunu koru */
+        }
+      }
+
+      detectSetupMode();
+
+      loginForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        clearError();
+
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value;
+        if (!username || !password) {
+          showError('Lütfen kullanıcı adı ve parola alanlarını doldurun.');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add('is-loading');
+        submitLabel.textContent = 'Kimlik doğrulanıyor...';
+
+        try {
+          const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              username: username,
+              password: password,
+              next: safeNextPath()
+            })
+          });
+
+          const data = await response.json().catch(function () { return {}; });
+          if (!response.ok) {
+            showError(data.message || 'Giriş başarısız oldu. Bilgilerinizi kontrol edin.');
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('is-loading');
+            submitLabel.textContent = 'MCP Analiz Paneline Giriş Yap';
+            return;
+          }
+
+          window.location.assign(data.redirectTo || '/dashboard');
+        } catch (_err) {
+          showError('Sunucuya bağlanılamadı. Lütfen bağlantınızı kontrol edin.');
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('is-loading');
+          submitLabel.textContent = 'MCP Analiz Paneline Giriş Yap';
+        }
+      });
+
+      setupForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        clearError();
+
+        const name = setupNameInput.value.trim();
+        const username = setupUsernameInput.value.trim();
+        const bapProject = setupProjectInput.value.trim();
+        const password = setupPasswordInput.value;
+        const setupToken = setupTokenInput.value.trim();
+
+        if (!name || !username || !password) {
+          showError('Lütfen Ad Soyad, Kullanıcı Adı ve Parola alanlarını doldurun.');
+          return;
+        }
+
+        setupSubmitBtn.disabled = true;
+        setupSubmitBtn.classList.add('is-loading');
+        setupSubmitLabel.textContent = 'Hesap oluşturuluyor...';
+
+        try {
+          const response = await fetch('/api/auth/setup', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              name: name,
+              username: username,
+              bapProject: bapProject,
+              password: password,
+              setupToken: setupToken || undefined,
+              next: safeNextPath()
+            })
+          });
+
+          const data = await response.json().catch(function () { return {}; });
+          if (!response.ok) {
+            showError(data.message || 'İlk kurulum tamamlanamadı.');
+            setupSubmitBtn.disabled = false;
+            setupSubmitBtn.classList.remove('is-loading');
+            setupSubmitLabel.textContent = 'Yürütücü Hesabını Oluştur ve Başla';
+            return;
+          }
+
+          window.location.assign(data.redirectTo || '/dashboard');
+        } catch (_err) {
+          showError('Sunucuya bağlanılamadı. Lütfen bağlantınızı kontrol edin.');
+          setupSubmitBtn.disabled = false;
+          setupSubmitBtn.classList.remove('is-loading');
+          setupSubmitLabel.textContent = 'Yürütücü Hesabını Oluştur ve Başla';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

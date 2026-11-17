@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "hypotheca-bap": {
+      "command": "node",
+      "args": [
+        "<PROJE_DIZINI>/mcp-server/dist/index.js"
+      ],
+      "env": {
+        "HYPOTHECA_DATA_DIR": "<PROJE_DIZINI>/arastirma-verilerim",
+        "HYPOTHECA_PROJECT_NAME": "BAP-2026-ZEYNEP-01"
+      }
+    }
+  }
+}

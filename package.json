@@ -14,24 +14,40 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 0.0.0.0 --port 8096",
-    "test": "vitest run"
+    "test": "vitest run",
+    "kurulum": "node scripts/kurulum.mjs",
+    "setup": "node scripts/kurulum.mjs",
+    "baslat": "npm run worker:dev",
+    "mcp:build": "tsc -p mcp-server/tsconfig.json",
+    "mcp:start": "node mcp-server/dist/index.js",
+    "mcp:seed": "npx tsx mcp-server/scripts/seed-bap-demo.ts",
+    "auth:hash": "npx tsx mcp-server/scripts/hash-password.ts",
+    "worker:typecheck": "tsc -p worker/tsconfig.json --noEmit",
+    "worker:dev": "npm run build && npx wrangler dev",
+    "deploy": "npm run build && npm run worker:typecheck && npx wrangler deploy"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
     "@xyflow/react": "^12.5.0",
     "docx": "^9.5.0",
     "echarts": "^5.6.0",
     "lucide-react": "^0.475.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "xlsx": "^0.18.5"
+    "unpdf": "^2.2.1",
+    "xlsx": "^0.18.5",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261117.1",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "jsdom": "^26.0.0",
+    "tsx": "^4.23.15",
     "typescript": "^5.7.2",
     "vite": "^6.1.0",
-    "vitest": "^3.0.6"
+    "vitest": "^3.0.6",
+    "wrangler": "^4.164.0"
   }
 }
