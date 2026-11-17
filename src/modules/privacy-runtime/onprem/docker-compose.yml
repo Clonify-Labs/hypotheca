@@ -1,0 +1,37 @@
+# Institutional Air-Gapped On-Premise Deployment for Hypotheca
+# Usage from repository root:
+#   docker compose -f src/modules/privacy-runtime/onprem/docker-compose.yml up -d --build
+
+services:
+  hypotheca-onprem:
+    build:
+      context: ../../../..
+      dockerfile: src/modules/privacy-runtime/onprem/Dockerfile
+    image: hypotheca-onprem:latest
+    container_name: hypotheca-onprem
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx:mode=1777
+      - /tmp:mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    environment:
+      - HYPOTHECA_MODE=airgapped-onprem
+      - HYPOTHECA_TELEMETRY=disabled
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    networks:
+      - institutional_lan
+
+networks:
+  institutional_lan:
+    driver: bridge
+    internal: true

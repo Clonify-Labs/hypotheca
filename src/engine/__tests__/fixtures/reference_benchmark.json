@@ -1,0 +1,500 @@
+{
+  "tests": {
+    "gpower_ind_t": {
+      "result": {
+        "output_parameters": {
+          "total_sample_size": 128,
+          "sample_size_group1": 64,
+          "df": 126,
+          "critical_t": 1.9789706,
+          "noncentrality_param": 2.8284271,
+          "actual_power": 0.8014596
+        }
+      }
+    },
+    "normality_test": {
+      "result": {
+        "results": [
+          {
+            "result": [
+              {
+                "statistic": 0.9693059944206119,
+                "p_value": 0.000532647967953954
+              },
+              {
+                "statistic": 0.9579448339169351,
+                "p_value": 3.256803107523314e-05
+              },
+              {
+                "statistic": 0.9657311241479517,
+                "p_value": 0.00021188619551700663
+              }
+            ]
+          },
+          {},
+          {
+            "result": [
+              {
+                "skewness": -0.3521860893433932,
+                "kurtosis": -0.5344589908835524
+              },
+              {
+                "skewness": -0.2772920087200498,
+                "kurtosis": -0.7791543861733445
+              },
+              {
+                "skewness": -0.2759129648040558,
+                "kurtosis": -0.7096977198469441
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "descriptive_table": {
+      "result": {
+        "results": [
+          {
+            "n": 180,
+            "mean": 3.573611111111111,
+            "std": 0.8715303203659609,
+            "std_error": 0.06496003469301526,
+            "median": 3.75,
+            "var": 0.7595650993171944,
+            "q1": 3.0,
+            "q3": 4.25
+          }
+        ]
+      }
+    },
+    "independent_t_test": {
+      "result": {
+        "t_test_results": [
+          {
+            "info": "equal variance",
+            "t": 0.9675017311384629,
+            "df": 178.0,
+            "sig": 0.33460599165894866,
+            "mean_diff": 0.1261023475344678,
+            "std_err_diff": 0.1303381104921463,
+            "ci_lower": -0.13110438875976155,
+            "ci_upper": 0.38330908382869716,
+            "test_id": "6afb53d10532d69059d3bd8b"
+          },
+          {
+            "info": "unequal variance",
+            "t": 0.9697984059748949,
+            "df": 175.19124807823786,
+            "sig": 0.33348397717982237,
+            "mean_diff": 0.1261023475344678,
+            "std_err_diff": 0.1300294440138853,
+            "ci_lower": -0.13052343302671193,
+            "ci_upper": 0.38272812809564755,
+            "test_id": "6afb53d10532d69059d3bd8b"
+          },
+          {
+            "info": "equal variance",
+            "t": 1.4049416515517794,
+            "df": 178.0,
+            "sig": 0.1617813804750918,
+            "mean_diff": 3.3825611725251576,
+            "std_err_diff": 2.4076168350401366,
+            "ci_lower": -1.368583876681532,
+            "ci_upper": 8.133706221731847,
+            "test_id": "6afb53d10532d69059d3bd9a"
+          },
+          {
+            "info": "unequal variance",
+            "t": 1.3977920282116947,
+            "df": 169.66665956784183,
+            "sig": 0.1640003638423432,
+            "mean_diff": 3.3825611725251576,
+            "std_err_diff": 2.419931652388041,
+            "ci_lower": -1.394491622928494,
+            "ci_upper": 8.15961396797881,
+            "test_id": "6afb53d10532d69059d3bd9a"
+          }
+        ],
+        "homogenity_results": [
+          {
+            "test_id": "6afb53d10532d69059d3bd8b",
+            "f": 0.024773303288700085,
+            "sig": 0.8751116573266475
+          },
+          {
+            "test_id": "6afb53d10532d69059d3bd9a",
+            "f": 0.6350615854037526,
+            "sig": 0.4265664108968926
+          }
+        ]
+      }
+    },
+    "paired_t_test": {
+      "result": {
+        "correlation_results": {
+          "n": 180,
+          "correlation": 0.7790859438900724,
+          "sig": 6.114920569352512e-38
+        },
+        "t_test_results": {
+          "mean": -16.806111111111115,
+          "std": 10.83888697355841,
+          "std_err_diff": 0.807882935777119,
+          "t": -20.80265638355757,
+          "df": 179.0,
+          "sig": 1.2051222195273158e-49,
+          "ci_lower": -18.400310898184667,
+          "ci_upper": -15.21191132403756
+        },
+        "effect_size_results": [
+          {
+            "info": "Cohen's d",
+            "standardizer": 10.83888697355841,
+            "point_estimate": 1.5505384595401555,
+            "ci_lower": 1.3322779952965593,
+            "ci_upper": 1.7687989237837516
+          },
+          {
+            "info": "Hedges' correction",
+            "standardizer": 10.83888697355841,
+            "point_estimate": -1.544032703765861,
+            "ci_lower": -1.761793735909948,
+            "ci_upper": -1.326271671621774
+          }
+        ]
+      }
+    },
+    "one_way_anova": {
+      "result": {
+        "anova_results": [
+          {
+            "test_id": "6afb53d10532d69059d3bd8e",
+            "results": [
+              {
+                "info": "Between Groups",
+                "sum_of_squares": 0.6338030691247378,
+                "df": 3,
+                "mean_square": 0.21126768970824594,
+                "f": 0.3253010566328196,
+                "sig": 0.8070675660783262
+              },
+              {
+                "info": "Within Groups",
+                "sum_of_squares": 114.30369693087529,
+                "df": 176,
+                "mean_square": 0.6494528234708823
+              },
+              {
+                "info": "Total",
+                "sum_of_squares": 114.93750000000003,
+                "df": 179
+              }
+            ]
+          }
+        ],
+        "welch_results": [
+          {
+            "test_id": "6afb53d10532d69059d3bd8e",
+            "statistic": 0.3525302871820186,
+            "df1": 3.0,
+            "df2": 87.41280720226675,
+            "sig": 0.7874093913303548
+          }
+        ]
+      }
+    },
+    "mann_whitney_u": {
+      "result": {
+        "test_statistics": [
+          {
+            "test_variable_id": "6afb53d10532d69059d3bd8b",
+            "mann_whitney_u": 3705.5,
+            "wilcoxon_w": 8458.5,
+            "z": -0.9218614919733907,
+            "sig": 0.35660082757454903
+          }
+        ]
+      }
+    },
+    "kruskal_wallis": {
+      "result": {
+        "test_statistics": [
+          {
+            "test_variable_id": "6afb53d10532d69059d3bd8e",
+            "kruskal_wallis_h": 1.3435280722587652,
+            "df": 3,
+            "sig": 0.7188237627771701
+          }
+        ]
+      }
+    },
+    "correlation": {
+      "result": {
+        "correlation_results": {
+          "pearson": [
+            {
+              "variable_1": "6afb53d10532d69059d3bd8b",
+              "variable_2": "6afb53d10532d69059d3bd8b",
+              "correlation": 1.0,
+              "sig": 0.0,
+              "n": 180
+            },
+            {
+              "variable_1": "6afb53d10532d69059d3bd8b",
+              "variable_2": "6afb53d10532d69059d3bd8e",
+              "correlation": 0.6470388199416804,
+              "sig": 9.91380202888035e-23,
+              "n": 180.0
+            },
+            {
+              "variable_1": "6afb53d10532d69059d3bd8b",
+              "variable_2": "6afb53d10532d69059d3bd9a",
+              "correlation": 0.7913291773996484,
+              "sig": 6.934875394680454e-40,
+              "n": 180.0
+            },
+            {
+              "variable_1": "6afb53d10532d69059d3bd8e",
+              "variable_2": "6afb53d10532d69059d3bd8b",
+              "correlation": 0.6470388199416804,
+              "sig": 9.91380202888035e-23,
+              "n": 180.0
+            },
+            {
+              "variable_1": "6afb53d10532d69059d3bd8e",
+              "variable_2": "6afb53d10532d69059d3bd8e",
+              "correlation": 1.0,
+              "sig": 0.0,
+              "n": 180
+            },
+            {
+              "variable_1": "6afb53d10532d69059d3bd8e",
+              "variable_2": "6afb53d10532d69059d3bd9a",
+              "correlation": 0.7287764830473145,
+              "sig": 4.328243952571689e-31,
+              "n": 180.0
+            },
+            {
+              "variable_1": "6afb53d10532d69059d3bd9a",
+              "variable_2": "6afb53d10532d69059d3bd8b",
+              "correlation": 0.7913291773996484,
+              "sig": 6.934875394680454e-40,
+              "n": 180.0
+            },
+            {
+              "variable_1": "6afb53d10532d69059d3bd9a",
+              "variable_2": "6afb53d10532d69059d3bd8e",
+              "correlation": 0.7287764830473145,
+              "sig": 4.328243952571689e-31,
+              "n": 180.0
+            },
+            {
+              "variable_1": "6afb53d10532d69059d3bd9a",
+              "variable_2": "6afb53d10532d69059d3bd9a",
+              "correlation": 1.0,
+              "sig": 0.0,
+              "n": 180
+            }
+          ]
+        }
+      }
+    },
+    "reliability": {
+      "result": {
+        "reliability_statistics": {
+          "cronbach_alpha": 0.9305694241912699,
+          "cronbach_alpha_standardized": 0.9307283597346356,
+          "n": 4
+        },
+        "hotellings_t2_test": {
+          "Hotelling's T-Squared": 4.336954978568379,
+          "F": 1.4294991270141584,
+          "df1": 3,
+          "df2": 177,
+          "Sig.": 0.23577341414708425
+        },
+        "anova_with_tukey_test_nonadditivity_results": [
+          {
+            "main_group": "Between People",
+            "sub_group": null,
+            "source": null,
+            "sum_sq": 543.849,
+            "df": 179,
+            "mean_sq": 3.038,
+            "f": null,
+            "sig": null,
+            "note": null
+          },
+          {
+            "main_group": "Within People",
+            "sub_group": "Between Items",
+            "source": null,
+            "sum_sq": 0.971,
+            "df": 3.0,
+            "mean_sq": 0.324,
+            "f": 1.534,
+            "sig": 0.205,
+            "note": null
+          },
+          {
+            "main_group": "Within People",
+            "sub_group": "Residual",
+            "source": "Nonadditivity",
+            "sum_sq": 0.92,
+            "df": 1.0,
+            "mean_sq": 0.92,
+            "f": 4.387,
+            "sig": 0.037,
+            "note": "a"
+          },
+          {
+            "main_group": "Within People",
+            "sub_group": "Residual",
+            "source": "Balance",
+            "sum_sq": 112.359,
+            "df": 536.0,
+            "mean_sq": 0.21,
+            "f": null,
+            "sig": null,
+            "note": null
+          },
+          {
+            "main_group": "Within People",
+            "sub_group": "Residual",
+            "source": "Total",
+            "sum_sq": 113.279,
+            "df": 537.0,
+            "mean_sq": 0.211,
+            "f": null,
+            "sig": null,
+            "note": null
+          },
+          {
+            "main_group": "Within People",
+            "sub_group": "Total",
+            "source": null,
+            "sum_sq": 114.25,
+            "df": 540.0,
+            "mean_sq": 0.212,
+            "f": null,
+            "sig": null,
+            "note": null
+          },
+          {
+            "main_group": "Total",
+            "sub_group": null,
+            "source": null,
+            "sum_sq": 658.099,
+            "df": 719,
+            "mean_sq": 0.915,
+            "f": null,
+            "sig": null,
+            "note": null
+          },
+          {
+            "grand_mean": "Grand Mean = 3.5736"
+          }
+        ],
+        "intraclass_corr_coefficient_results": [
+          {
+            "Measure": "Single Measures",
+            "Value": 0.77,
+            "CI Lower Bound": 0.723,
+            "CI Upper Bound": 0.813,
+            "F": 14.403,
+            "df1": 179,
+            "df2": 537,
+            "Sig.": 0.0
+          },
+          {
+            "Measure": "Average Measures",
+            "Value": 0.931,
+            "CI Lower Bound": 0.912,
+            "CI Upper Bound": 0.946,
+            "F": 14.403,
+            "df1": 179,
+            "df2": 537,
+            "Sig.": 0.0
+          }
+        ]
+      }
+    },
+    "linear_regression": {
+      "result": {
+        "summary_table": {
+          "R": 0.7287764830473143,
+          "R Square": 0.5311151622428125,
+          "Adjusted R Square": 0.5284809777610306,
+          "Std Error": 11.086739483675295,
+          "R Square Change": 0.5311151622428125,
+          "F Change": 201.6241329777814,
+          "df1": 1,
+          "df2": 178,
+          "sig": 4.3282439525717716e-31,
+          "Durbin-Watson": 1.833420709183628
+        },
+        "coefficient_table": [
+          {
+            "Name": "const",
+            "B": 19.850963687994696,
+            "Std Error": 4.007187415220748,
+            "Beta": null,
+            "t": 4.953839596469472,
+            "sig": 1.6835427697160424e-06,
+            "Lower Bound": 11.943256625981226,
+            "Upper Bound": 27.758670750008164,
+            "Tolerance": null,
+            "VIF": null
+          },
+          {
+            "Name": "6afb53d10532d69059d3bd8e",
+            "B": 14.683994924777961,
+            "Std Error": 1.034124837999115,
+            "Beta": 0.7287764830473146,
+            "t": 14.199441291043168,
+            "sig": 4.3282439525715036e-31,
+            "Lower Bound": 12.64327273310112,
+            "Upper Bound": 16.7247171164548,
+            "Tolerance": 1.0,
+            "VIF": 1.0
+          }
+        ]
+      }
+    },
+    "efa": {
+      "result": {
+        "kmo_and_barletts": {
+          "kmo_model": 0.9312049045994754,
+          "chi-square": 1886.0261002895083,
+          "sig": 0.0,
+          "df": 66.0
+        },
+        "total_variance_explained": {
+          "initial": {
+            "total": [
+              7.252463662741809,
+              1.5162422479416195,
+              1.1473581191386866,
+              0.3173387278344338,
+              0.29465030999040687,
+              0.2615956210754807,
+              0.23256934660496859,
+              0.22604699265594186,
+              0.21375206826442492,
+              0.19861545635574418,
+              0.17400547293410595,
+              0.16536197446238304
+            ]
+          },
+          "extraction": {
+            "cumulative": [
+              60.43719718951505,
+              73.07254925569521,
+              82.63386691518426
+            ]
+          }
+        }
+      }
+    }
+  }
+}
