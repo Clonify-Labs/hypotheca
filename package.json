@@ -4,7 +4,7 @@
   "description": "Source-available, browser-native TypeScript statistical workbench for academic research.",
   "license": "PolyForm-Noncommercial-1.0.0",
   "author": "Muammer Tiryaki <muammer@clonifylabs.com> (https://clonifylabs.com)",
-  "homepage": "https://hypotheca.pages.dev",
+  "homepage": "https://hypotheca.muammer-b28.workers.dev",
   "repository": {
     "type": "git",
     "url": "https://github.com/Clonify-Labs/hypotheca.git"
