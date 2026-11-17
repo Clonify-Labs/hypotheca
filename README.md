@@ -4,7 +4,9 @@ A source-available statistics workbench for academic research that runs entirely
 
 Tarayıcıda çalışan, kaynak kodu incelemeye ve akademik/ticari olmayan kullanıma açık istatistik uygulaması. Arayüz Türkçe ve İngilizcedir.
 
-[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm_Noncommercial_1.0.0-2E6194.svg)](LICENSE)
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm_Noncommercial_1.0.0-2E6194.svg)](LICENSE) [![Live Demo](https://img.shields.io/badge/Demo-hypotheca.pages.dev-F38020.svg)](https://hypotheca.pages.dev)
+
+**Live Demo / Canlı Önizleme:** [https://hypotheca.pages.dev](https://hypotheca.pages.dev) *(örnek veri setleri yüklü gelir; tüm analizler tarayıcınızda yerel çalışır / preloaded with sample datasets; all analyses run locally in your browser)*
 
 ## Overview
 
